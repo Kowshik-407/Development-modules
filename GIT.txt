@@ -1,0 +1,63 @@
+What is GIT ? 
+Git is free and open source version control system
+
+What is Version Control ? 
+The management of changes to documents, computer programs, large websites, and other collection of information.
+
+Terms - 
+Directory ---> Folder
+Terminal or Command Line ---> Interface for text commands
+CLI ---> Command Line Interface
+cd ---> Change Directory
+Code Editor --> Word Processor for Writing Code
+Repository --> Project, or the folder/place where your project is kept
+Github --> A website to host your repositories online
+
+
+Git Commands - 
+clone 		- Bring a repository that is hosted somewhere like Github into a folder on your local machine
+add		- Track your files and changes in Git
+commit		- Save your files in Git
+push 		- Upload Git Commits to a remote repo, like Github
+pull 		- Download changes from remote repo to your local machine, the opposite of push
+
+
+
+
+Procedure - 
+GITHUB ---> 
+Login into your account. Have a new repository name as demo-repo 
+and add a README.md file with some data description. 
+Then open Visual Studio Code and start processing GIT data
+
+1. Open terminal in Visual Studio Code or Git Bash
+2. Have a new folder and name as GIT 
+3. RUN ---> git clone https://github.com/Kowshik-407/demo-repo.git
+4. RUN ---> cd demo-repo
+5. RUN ---> git status 
+6. RUN ---> git add . or you can have a specific file to add example :: git add index.html
+7. RUN ---> git commit -m "Added index.html" -m "some description". Here, -m is a message and commit is used to commit the changes and -m is used 2 times. First -m is used for File name heading and second -m is used for Description for heading
+
+GENERATION OF SSH KEYS ---> 
+1. Open cmd 
+2. ssh-keygen -t rsa -b 4096 -C "aitha.kowshik3@gmail.com" --> It's a Github Mail id
+3. Enter file to save the key --> testkey
+4. dir | findstr testkey ---> To search for the key
+5. type testkey.pub --> testkey.pub is the key to upload GITHUB interface. pub is public and normal testkey is a private key and to print the testkey use type
+6. Copy the address of testkey.pub by just highlighting it and right click and there is no need of usage CTRL+C
+
+
+GIT PUSH ----> 
+
+1. ls
+3. git init
+4. git remote add origin <gitlink>
+5. git remote -v
+6. git add . 
+7. git commit -m "First Commit"
+8. git push origin master
+
+
+
+
+

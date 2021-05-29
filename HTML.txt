@@ -1,0 +1,256 @@
+HTML ---> 
+	1. HTML stands for Hyper Text Markup Language is used to create web pages as well as other types of
+	documents viewable in a web browser
+	2. HTML describes the structure of a Web page
+	3. HTML elements tell the browser how to display the content
+	4. HTML is not case sensitive ie., case insensitive
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Page Title</title>
+</head>
+<body>
+
+<h1>My First Heading</h1>
+<p>My first paragraph.</p>
+
+</body>
+</html>
+
+
+The <!DOCTYPE html> declaration defines that this document is an HTML5 document
+The <html> element is the root element of an HTML page
+The <head> element contains meta information about the HTML page
+The <title> element specifies a title for the HTML page
+The <body> element defines the document's body, and is a container for all the contents, such as headings, 
+		paragraphs, images, hyperlinks, tables, etc.,
+The <h1> element defines a large heading
+The <p> element defines a paragraph
+
+
+
+HTML Element - 
+		<tagname> ...Content... </tagname>
+
+
+HTML Documents
+
+---> All HTML documents must start with a document type declaration: <!DOCTYPE html>.
+
+---> The HTML document itself begins with <html> and ends with </html>.
+
+---> The visible part of the HTML document is between <body> and </body>.
+
+
+
+
+The <!DOCTYPE> Declaration for HTML5 - <!DOCTYPE html>
+
+HTML Headings - 
+<h1> </h1>
+<h2> </h2>
+<h3> </h3>
+<h4> </h4>
+<h5> </h5>
+<h6> </h6>
+
+HTML Paragraphs - 
+<p> </p>
+
+HTML Links - 
+<a href='https://www.w3schools.com'> </a>
+
+HTML Images - 
+<img src='w3schools.jpg' alt='W3Schools' width='100' height='150'>
+
+HTML Attributes - 
+	1. All HTML elements can have attributes
+	2. Attributes provide additional information about elements
+	3. Attributes are always specified in the start tag usually: name="value"
+	4. Example :- <a> has href and <img> has src
+
+The href attribute - <a href='https://www.w3schools.com'> </a>
+The src  attribute - <img src='w3schools.jpg'>
+	Two ways to specify the URL in the src attribute - 
+	1. Absolute URL - Links to an external image that is hosted on another website.
+		ex: src="https://www.w3schools.com/images/img_girl.jpg"
+	2. Relative URL - Links to an image that is hosted within the website. URL doesn't include DNS
+		ex: src="/images/img_girl.jpg"
+The width and height attributes - <img src="img_girl.jpg" width="500" height="600">
+The alt attribute - <img src="img_girl.jpg" alt="Girl image">
+			if the src is wrong it shows an alt text inplace of image
+The style attribute - <p style="color:red;"> This is a paragraph </p>
+The lang attribute  - <html lang="en">
+The title attribute - <p title="I'm a tooltip"> This is a paragraph </p>
+
+All HTML elements can have attributes
+1. The href attribute of <a> specifies the URL of the page the link goes to
+2. The src attribute of <img> specifies the path to the image to be displayed
+3. The width and height attributes of <img> provide size information for images
+4. The alt attribute of <img> provides an alternate text for an image
+5. The style attribute is used to add styles to an element, such as color, font, size, and more
+6. The lang attribute of the <html> tag declares the language of the Web page
+7. The title attribute defines some extra information about an element
+
+
+--------------------------------------------------------------------------------------
+
+HTML ELEMENT Reference - 
+
+BASIC HTML 
+
+<!DOCTYPE html> --> Defines the document type
+<html> 		--> Defines a HTML document
+<head> 		--> Contains metadata/ information for the document
+<title>		--> Defines a title for the document
+<body>		--> Defines the document's body
+<h1> to <h6>	--> Defines HTML headings
+<p>		--> Defines a paragraph
+<br>		--> Inserts a single line break
+<hr>		--> Defines a horizontal line
+<!-- -->	--> Defines a comment
+
+FORMATTING - 
+
+<abbr> 		--> Defines an abbreviation or an acronym
+<address> 	--> Defines contact information for the author/owner of a document
+<b> 		--> Defines bold text
+<bdi> 		--> bdi stands for Bi-Directional Isolation. The <bdi> tag isolates a part of text that might be formatted in a different direction from other text outside it.
+<bdo>		--> bdo stands for Bi-Directional Override. The <bdo> tag is used to override the current text direction.
+<blockquote>	--> Defines a section that is quoted from another source. It has an attribute cite indicates the URL to specify the source of the operation.
+<cite> 		--> Defines the title of a work. Usually renders in italic
+<code> 		--> Defines a peice of computer code
+<del>		--> Defines text that has been deleted from a document
+<dfn> 		--> dfn stands for definition element and it specifies a term that is going to be defined within the content.
+<em>		--> Defines emphasized text and the content inside is typically displayed in italic.
+<i> 		--> Deines an italic text 
+<ins>		--> Defines a text that has been inserted into a document
+<kbd>		--> Defines keyboard input. The content inside is displayed in the browser's default monospace font
+<mark>		--> Defines marked/highlighted text
+<meter>		--> Defines a scalar measurement within a known range, or a fractional value (a guage)
+<pre>		--> Defines preformatted text. It is displayed in a fixed-width font, and the text preserves both spaces and line breaks.
+<progress> 	--> This tag represents the completion progress of a task
+<q> 		--> Defines a short quote
+<rp> 		--> Defines what to show in browsers that do not support ruby annotations
+<rt> 		--> Defines an explanation/pronunciation of characters
+<ruby> 		--> Defines a ruby annotation (for East Asian typography>
+<s> 		--> Defines text that is no longer correct
+<samp>		--> Defines sample output from a computer program
+<small> 	--> Defines small text
+<strong>	--> Defines important text
+<sub>		--> Defines subscripted text
+<sup> 		--> Defines superscripted text
+<template>	--> This is used as a container to hold some HTML content hidden from the user when the page loads
+<time> 		--> Defines a specific time. The datetime attribute of this element is used translate the time into a machine-readable format
+<u> 		--> Defines an underline to the text
+<var> 		--> Defines a variable
+<wbr> 		--> wbr stands for word break opportunity and it defines a possible line-break
+
+FORMS AND INPUT - 
+
+<form> 		--> Defines an HTML form for user input
+<input> 	--> Defines an input control
+<textarea> 	--> Defines a multiline input control
+<button> 	--> Defines a clickable button 
+<select> 	--> Defines a drop-down list
+<optgroup> 	--> Defines a group of related options in a drop-down list
+<option> 	--> Defines an option in a drop-down list
+<label> 	--> Defines a label for an <input> element 
+<fieldset> 	--> Groups related elements in a form 
+<legend> 	--> Defines a caption for a <fieldset> element 
+<datalist> 	--> Specifies a list of pre-defined options for input controls
+<output> 	--> Defines the result of a calculation
+
+FRAMES - 
+<iframe> 	--> Defines an inline frame
+
+IMAGES - 
+
+<img> 		--> Defines an image
+<map> 		--> Defines a client-side image map
+<area> 		--> Defines an area inside an image map
+<canvas> 	--> It is used to draw graphics, on the fly, via scripting (usually Javascript)
+<figcaption> 	--> Defines a caption for a <figure> element 
+<svg> 		--> Defines a container for multiple image resources
+<picture> 	--> This tag gives web developers more flexibility in specifying image resources.
+The most common use of the <picture> element will be for art direction in responsive designs. Instead of having one image that is scaled up or down based on the viewport width, multiple images can be designed to more nicely fill the browser viewport.
+The <picture> element contains two tags: one or more <source> tags and one <img> tag.
+The browser will look for the first <source> element where the media query matches the current viewport width, and then it will display the proper image (specified in the srcset attribute). The <img> element is required as the last child of the <picture> element, as a fallback option if none of the source tags matches.
+
+AUDIO / VIDEO - 
+
+<audio> 	--> Defines sound content
+<source> 	--> Defines multiple media resources for media elements (<video>, <audio> and <picture>)
+<track> 	--> Defines text tracks for media elements (<video> and <audio>)
+<video> 	--> Defines a video or movie
+
+LINKS - 
+
+<a> 		--> Defines a hyperlink
+<link>		--> Defines the relationship between a document and an external resource(Used to link to style sheets)
+<nav> 		--> Defines navigation links 
+
+LISTS - 
+<ul> 		--> Defines an unordered list
+<ol> 		--> Defines an ordered list
+<li> 		--> Defines a list item
+<dl> 		--> Defines a description list
+<dt> 		--> Defines a term/name in a description list
+<dd> 		--> Defines a description of a term/name in a description list
+
+
+TABLES - 
+<table> 	--> Defines a table 
+<caption> 	--> Defines a table caption 
+<th> 		--> Defines a header cell in a table 
+<tr> 		--> Defines a row in a table
+<td> 		--> Defines a cell in a table 
+<thead> 	--> Groups the header content in a table
+<tbody> 	--> Groups the body content in a table
+<tfoot> 	--> Groups the footer content in a table
+<col> 		--> Specifies column properties for each column within a <colgroup> element
+<colgroup> 	--> Specifies a group of one or more columns in a table for formatting 
+
+STYLES AND SEMANTICS - 
+
+<style> 	--> Defines style information for a document 
+<div> 		--> Defines a section in a document 
+<span>		--> Defines a section in a document
+<header>	--> Defines a header for a document or section
+<footer>	--> Defines a footer for a document or section
+<main>		--> Specifies the main content of a document
+<section>	--> Defines a section in a document
+<article>	--> Defines an article
+<aside>		--> Defines content aside from the page content
+<details>	--> Defines additional details that the user can view or hide
+<dialog>	--> Defines a dialog box or window
+<summary>	--> Defines a visible heading for a <details> element
+<data>		--> Adds a machine-readable translation of a given content
+
+
+META INFO - 
+<head>  	--> Defines information about the document 
+<meta> 		--> Deines metadata about an HTML document 
+<base> 		--> Specifies the base URL/target for all relative URLs in a document 
+
+
+PROGRAMMING - 
+<script> 	--> Defines a client-side script
+<noscript> 	--> Defines an alternate contents for users that do not support client-side scripts 
+<embed>		--> Defines a container for an external (non-HTML) application
+<object>	--> Defines an embedded object
+<param>		--> Defines a parameter for an object
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,731 @@
+DBMS 
+-----------------
+Data Base Management System 
+
+Topics - 
+1. SQL Commands - CREATE, ALTER, DROP, TRUNCATE, SELECT, INSERT, UPDATE, DELETE, GRANT, REVOKE, COMMIT, ROLLBACK
+2. Datatypes - INTEGER, NUMBER, CHAR, VARCHAR2, DATE, TIMESTAMP, CLOB, BLOB
+3. CONSTRAINTS - DEFAULT, NOT NULL, PRIMARY KEY, UNIQUE, CHECK, FOREIGN KEY, REFERENCES 
+
+Introduction 
+---------------------------
+What is a data? 
+Data is a collection of facts about the object of interest. For e.g. data about a student would include information like name, address, roll no, subjects, marks etc. 
+
+A Database is a shared collection of logically related data and description of these data, designed to meet the information needs of an organization.
+
+A Database Management System(DBMS) is a software system that enables users to define, create, maintain, and control access to the database. Database Systems typically have high cost and they require high-end hardware configurations.
+
+We will focus on Data Management, Integrity, Transaction and Concurrency in this course.
+
+1. Data Management - Store, retrieve and modify data
+2. Integrity - Maintain accuracy of data
+3. Transaction Support - Ensure modifications to database must either be succesful or not done at all.
+4. Concurrency Control - Simultaneous data access provided to users
+
+Questions - 
+1. A Database Management System is --> A collection or programs to access data
+2. DBMS is an interface between --> Database application and Database
+3. Disadvantages of file system to store data 
+ - Data redundancy and inconsistency
+ - Difficulty in accessing data
+ - Data isolation is not present
+4. Features are provided by DBMS - 
+ - Maintain accuracy of data
+ - Utilities for performance analysis and logging
+ - Ensure modifications are successful or not done at all
+ - Recovery mechanism for data
+ - Protect data from system crash
+ - Authorized access
+5. Advantage of database management approach 
+- Data can be accessed by multiple programs
+
+
+DBMS can be categorized into four types - 
+1. Hierarchial 	--> Tree Structure
+2. Network	--> Graph Structure
+3. Relational 	--> Tabular Structure (Focuses on this course)
+4. NoSQL	--> Key-value pairs Graph Document
+ 
+Relational Databases - 
+1. Relational Databases store data in relations i.e. tables. Each relation must have a name.
+2. An attribute is a named column of a relation. It stores a specific information about an object e.g. salary. 
+		Attributes / Columns / Fields
+3. A tuple is a row in a relation. It represents relationship between attributes that can contain single value.
+		Rows / Records / Tuples
+4. Cardinality of relation is the number of rows it contains. e.g. Cardinality of relation below is 4.
+		Number of records / rows / tuples
+5. Degree of relation is the number of attributes it contains. e.g. Degree of relation below is 5.
+		Number of attributes / Columns / fields
+6. NULL represents the value of an attribute that is currently unknown or not applicable.
+7. A domain is the set of allowable values for one or more attributes.
+
+--> A collection of relations with distinct relation names is called as Relational Model.
+
+Questions - 
+1. A relational database consists of a collection of - Tables
+2. A relationship among a set of values in a table is represented by a - Row
+3. The set of permitted values of an attribute is called - Domain
+4. The attribute value that is currently unknown is - NULL
+
+Data integrity and constraints - 
+It refers to maintaining and assuring the accuracy and consistency of dat aover its enter life-cycle.
+Database Systems ensure data integrity through constraints which are used to restrict data that can be entered or modified in the database.
+Three types of integrity constraints - 
+1. Entity integrity - Each table must have a column or a set of columns through which we can uniquely identify a row. --> Enforced through PRIMARY KEY
+2. Domain Integity - All attributes in a table must have a defined domain ie., a finite set of values have to be used. --> Enforced through DATA TYPES, CHECK CONSTRAINT
+3. Referential Integrity - Every value of a column in a table must exist as a value of another column in a different --> Enforced through FOREIGN KEY 
+
+A Candidate Key is a minimal set of columns/attributes that can be used to uniquely identify a single row/tuple in a relation. 
+Relation - Employee(EmployeeNo, Name, AadharNo, Salary, DateOfBirth)
+EmployeeNo, name these are candidate keys.
+
+A primary Key is the candidate key that is selected to uniquely identify a tuple in a relation.
+Mandatory attributes for a primary key are - 
+1. Must uniquely identify a tuple / row
+2. Must not allow NULL Values 
+Desired attributes for a primary key are - 
+1. Should not change with time.
+2. Should have short size eg., numeric data types
+
+A foriegn key is a set of one or more columns in the child table whose values are required to match with corresponding columns in the parent table.
+
+Questions - 
+1. Relationship between the two tables is created using - Foreign Key
+2. Customer(CustId, CustName, Email, ContactNo, Address) Payment(PaymentId, CustName, Address, Amount)
+---> Primary key for Customer - CustId and for payment - PaymentId
+---> Candidate keys for Customer - CustId, Email, ContactNo
+---> Foreign keys for both Customer and Payment - CustName, Address
+
+
+ER Diagram 
+---------------------
+Jack is a part of the database team and he needs to present the database design to business users. The business users are non-technical and it is difficult for them to read a verbose design document. What can Jack do? Jack needs to use an Entity Relation (ER) Model.
+
+ER model is a graphical representation of entities and their relationships which helps in understanding data independent of the actual database implementation. Let us understand some key terms used in ER Modelling.
+
+Entity - Real world objects which have an independent existence and about which we intend to collect data. Ex::> Employee, Computer
+Attribute - A property that describes an entity Ex::> Name, Salary
+
+Relationships -
+- These are associations of one entity with another entity through a foreign key. e.g. a Computer is allocated to an Employee.
+- There can be morethan one relationship between entities. e.g. an Employee works in a Department while the head of the department (also an employee) manages a Department.
+- A relationship can also exist between instances of the same entity. e.g. an Employee reports to a manager (also an Employee).
+
+Cardinality of relationship - It is the number of instances in one enity which is associated to the number of instances in another.
+Three types - 
+ - 1:1 One-to-one relationship
+ - 1:N One-to-many relationship
+ - M:N Many-to-many relationship
+
+Crow foot notation is one of the ways to represent cardinality of relationship in an ER Model. The notation comprises of four symbols and one of them needs to be used for each entity in a relationship.
+
+Let us say the relationship between employee and computer is such that a computer must be allocated to one and only one employee but an employee can be allocated with zero or any number of computers. Such a relationship is represented by the diagram below: (img)
+
+Foriegn keys need to be created in tables in order to establish the relationship between entitities - (img)
+The table in which foreign key will be created depends upon the cardinality of the relationship. Let us now discuss about the types of cardinalities and how it impacts foreign key creation.
+
+1:1 relationship represents association between single occurence of one entity and a single occurence of the second entity. (img)
+The Allot_Dt attribute is not a property of employee or computer. It belongs to the relationship and is hence represented differently in the ER Model.
+We can see that the employee table has two additional attributes - CompId and Allot_Dt. CompId is a foreign key to establish the link between these two tables. Allot_Dt which is the attribute of the relationship is always stored in the table that has the foreign key.
+Alternatively we could also have added Id and Allot_Dt attributes in computer table to establish the link.
+
+1:N relationship represents association between single occurence of one entity and multiple occurences of second entity
+For e.g. consider a company where each employee can be allocated with many computers but still computers cannot be shared between employees. (img)
+In 1 : N relationships, the foreign key and relationship attributes are always added to the many (N) side of the relationship. Hence these attributes are added to computer table. The reverse solution will not work.
+
+M:N relationship represents association between multiple occurences of both entities. 
+For e.g. consider a company where each employee can be allocated with many computers and computers can be shared between employees. (img)
+In M : N relationships, the relationship is represented by a completely new table that has a composite primary key. Such a structure requires two foreign keys on the new table linking to the primary keys of each of the parent tables. The attribute of the relationship resides on this new table.
+
+Questions - 
+1. In many to one relationship, the primary key of one entity acts as a foreign key on which side? --> On the side where many relationship is defined
+2. A many to many relationship between two entities usually results in how many tables? --> Three
+
+
+Overview - 
+Data - Collections of Facts			Marks : 90
+Information - It is a processed data		Grade : A
+Knowledge - Making sense of information		Status: Selected
+
+Need for DBMS - Storing data of 50,000 employees in a file can only person modifies this file at a time! to overcome this single work we are moving to DBMS such as Oracle, MySQL, Microsofr SQL Server
+
+What can a DBMS do - 
+ - Store, fetch, modify and delete data
+ - Use transactions to ensure data consistency
+ - Ensure data integrity 
+ - Enable concurrent access 
+ - Ensure data recovery
+ - Ensure data security 
+ - Provide utilities to adminstrator database
+
+The first three points are considered in this course.
+
+Flavors of DBMS - 
+Modern DBMS 
+ - Relational DBMS 	--> Oracle, MySQL, SQL Server, DB2
+ - NoSQL 	 	--> MongoDB, Cassandra
+Old DBMS 
+ - Hierarchial DBMS 	--> Information Management System (IMS) 
+ - Network DBMS 	--> Integrated Data Store (IDS)
+
+In this course we focus on Oracle, and little bit of MongoDB
+
+Relational Database Model - 
+Key terms - 
+ - Attributes / Fields  / Columns 
+ - Tuples     / Records / Rows
+ - Relation ---> Employee(ID, ENAME, SALARY, BONUS, DEPT)
+ - Domain   ---> Set of allowed values for an attribute
+ - Cardinality of relation --> Number of tuples in a relation 
+ - Degree of relation      --> Number of attributes in a relation
+
+Candidate Key : Minimal set of columns that uniquely identify a row/record. 
+Relation Employee(EMPID, EMPNAME, EMAILID, DOJ, PASSPORTNO)
+For any relation we can have one or more valid candidate keys.
+
+Composite Candidate Key - 
+STUDENTID	COURSEID	MARKS
+-----------------------------------------------------------
+1		RDBMS		78.5
+2		JAVA 		68.5
+3		RDBMS		90
+4 		ORACLE		90
+5 		JAVA		90
+-----------------------------------------------------------------
+To find the unique key it is impossible to catch the record for a column.
+For this case. We should combine two columns such as STUDENTID, COURSEID --> This will be helpful to catch the unique records for a minimal set of columns. Those consideration of two columns can be acts as a Composite Candidate key. 
+To choose a good Composite Candidate key use business rules rather than sample data.
+
+Primary Key and Unique Key 
+Primary Key --> Shortest key which uniquely identifies a row
+Primary key does not allow NULL Values
+
+Composite Primary Key 
+STUDENTID	COURSEID	MARKS
+-----------------------------------------
+1001		801		78.5
+1002		802 		68.5	
+1002		801		92
+------------------------------------------
+Here STUDENTID, COURSEID can be considered as Composite Candidate Key as well as Composite Primary Key
+
+Unique Key - 
+EMPID can acts as a primary key because it is short, but EMAILID is also unique, so it can be acts as a unique key
+Difference between Primary Key and Unique Key --> 
+Parameters			PRIMARY KEY(PK)		UNIQUE KEY(UK)
+-------------------------------------------------------------------------------
+Allows only unique values?	Yes			Yes
+Composite keys allowed?		Yes			Yes
+NULL Values allowed?		No			Yes
+Multiple keys allowed?		Zero or one PK/table    Zero or more UK/table
+----------------------------------------------------------------------------------
+
+Foriegn Key - 
+Two Tables 
+Employee table 								Department table
+EMPID 	EMPNAME		DEPTCODE					DEPTCODE	DNAME
+------------------------------------------------------------------------------------------------------
+1 	JACK		1002						1001		ETA
+2 	JONES		1001						1002 		IVS
+3 	JANE 		NULL						1003		JEE
+									1004		MS
+--------------------------------------------------------------------------------------------------------
+Here in Employee table EMPID acts as Primary key and whereas DEPTCODE acts as a primary key in Dept table
+Here DEPTCODE can be called as a Foreign Key and DEPTCODE should be as a PRIMARY KEY / UNIQUE KEY
+Department Table ---> Parent Table / Referenced Table
+Employee   Table ---> Child Table  / Referencing Table
+ - Foreign key should need not be have a unique values
+ - Foreign key allows NULL Values
+ - While choosing foriegn keys think carefully which columns to link
+
+ER Diagram - Entity Relationship
+We use ER diagram to visualize the database design and data storage requirements.
+
+Cardinality of Relationship - It defines the number of instances of one entity associated with number of instances of another entity
+Three types of Cardinality of Relationships - 
+1:1 Relationship
+1:N Relationship
+M:N Relationship
+Crowfoot Notations - 
+ ||  exactly one
+ |O  Zero or One
+ ->O Zero, one or more
+ ->| One or more
+
+Converting ER Diagram into a Table - 
+Converting 1:1 relationship to Table ---> 
+1. In a 1:1 relationship, primary key of either entity can be made foreign key of the other
+2. Attribute of the relationship has to be placed in the table that has the foreign key
+
+Converting 1:M relationship to Table --->
+1. In a 1:M relationship, foreign key and relationship attributes are added to the "Many" side of the relationship. 
+Note ::> The Database will not allow multiple values in the data set
+2. The Foreign key must be created at many side relationship table.
+
+Converting M:N relationship to Table ---> 
+1. In M:N relationships, the relationship is represented by a completely new table that has a composite primary key. 
+Creation of new table of a primary key from table 1 and the primary key of table 2 can be combined in a new table and it is a composite Primary key. 
+2. In the table 3 the both primary keys acts as a foreign keys to the corresponding two tables and the relation attribute should be placed in third table.
+
+
+DBMS Basics - Assignment questions
+
+Consider an application for club membership. There are many clubs at different locations. A club can have many members. Each member belonging to a particular club has a unique identity member. The member id can be same for different clubs.
+Club(ClubId, Name, Location)
+Member(ClubId, MemberId, Name, Address)
+
+1. Primary key for club relation --> ClubId
+2. Primary key for member relation --> {ClubId, MemberId}
+3. Foreign key for club relation --> Foreign key doesn't exists
+4. Foreign key for member relation --> ClubId
+
+Consider an application for a training institute. Here, a participant can enroll for multiple courses. A course can be enrolled by many participants. Assessments are conducted for courses and marks are awarderd to participants. A participant is allowed to take assessment only once for a course. A participant can enroll for a course only if he/she has undertaken the prerequisite course
+Participant(ParticipantId, Name, Address)
+Course(CourseId, Desc, Duration, Prerequisite)
+Assessment(CourseId, Marks, ParticipantId)
+
+1. Primary key for participant relation - ParticipantId
+2. Primary key for Assessment relation - {CourseId, ParticipantId}
+3. Primary key for Course relation - CourseId
+4. Foreign keys for participant relation - Foreign key doesn't exists
+5. Foreign keys for assessment relation - CourseId, ParticipantId
+6. Foreign keys for course relation - Prerequisite
+
+An attribute in a table/relation can reference another attribute in the same table/relation and this is called Self Referencing Foreign Key
+
+
+SQL - Structured Query Language
+It is used to manage data in all relational databases like DB2, Oracle, SQL Server etc., Standards are maintained by ISO
+
+SQL - 
+ - DDL Data Definition Language
+ - DML Data Manipulation Language
+ - DCL Data Control Language
+ - TCL Transaction Control Language
+
+DDL - It is used to specify the structure ie., schema of a relational database. It provides commands for creation, modification, and deletion of various database objects like tables, views, stored procedures, indexes, constraints, etc.,
+The Output of DDL is placed in data dictionary which contains metadata ie., data about data.
+
+ - CREATE 	--> Create new database objects 
+ - ALTER	--> Modify existing database objects 
+ - DROP		--> Delete existing database objects
+ - TRUNCATE 	--> Remove all rows from table
+
+DML - Data Manipulation Language enables users to access or manipulate data in a relational database. It provides commands for retrieval, creation, deletion, and modification of information in a database. DML requires a user to specify what data is needed without specifying how to get it. The database engine is left to figure out effective means of retrieving data.
+ - INSERT	--> Create new rows in tables 
+ - UPDATE 	--> Modify data in tables
+ - DELETE	--> Delete data from tables
+ - SELECT	--> Retrieved data from tables
+
+DCL - Data Control Language enables users to provide access to various database objects like views, tables, stored procedures ets., in a relational database. Typically only DBMS have access to grant and revoke previliges. Whenever a user submits a query, the database checks against the granted previliges and rejects the query if it is not authorized. 
+ - GRANT 	--> Provide access to rights on database
+ - REVOKE	--> Withdraw access to rights on database
+
+TCL - Transaction Control Language specifies commands for beginning and ending a transaction. A transaction consists of a sequence of SQL statements that are applied in an atomic (all or none) manner. A commit makes all the changes applied by the transaction permanent on the database while a rollback undoes all the changes applied by the transaction.
+ - COMMIT 	--> Save database changes and end transaction
+ - ROLLBACK	--> Undo changes that are not commited and end transaction
+
+
+SQL Datatypes and operators - 
+Datatypes - 
+ - Character 
+ - Integral 
+ - Non-Integral 
+ - Miscellaneous
+Operators - 
+ - Arithmetic 
+ - Comparison 
+ - Logical
+
+Character datatypes - 
+SQL supports two char datatypes for storing printable and displayable characters. They are used for storing information like names, address, description etc., (img)
+
+Integral datatypes - 
+SQL supports SMALLINT, INTEGER, and INT datatypes that are used for storing whole numbers. SQL, unlike programming languages, does not provide support for arbitrary length numbers i.e. numbers not bound by size limits. For e.g. Python supports bignum and Java supports BigInteger data types.
+
+Non-Integral datatypes - 
+It has an integer part and a fractional part. Either NUMERIC, DECIMAL or NUMBER datatypes can be used to store nonintegral numbers 		NUMBER(3,1) ---> 3 (Precision) and 1 (Scale)
+Scale is the number of digits allowed after the decimal point. Precision is the total number of significant digits i.e. digits both before and after the decimal point. If Scale is not provided then NUMBER datatype can be used to store integral values. (img)
+
+SQL supports the following datatypes to represent date and large objects - DATE and TIMESTAMP
+
+Questions - 
+1. Choose a datatype to store a weight of 635kg with 1gm accuracy - NUMBER(6,3)
+2. Maximum Value that can be stored in NUMERIC(4,2) - 99.99
+3. Scale denotes number of digits allowed after decimal point and SQL performs rounding if user attempts to store a value that has higher scale than the datatype
+4. Find the datatype 
+ - 200.21 --> NUMBER(5,2)
+ - 2014/01/01 10:00 AM ---> TIMESTAMP
+ - Profile_Image --> BLOB 
+ - Winning --> VARCHAR2(50)
+ - M --> CHAR(1)
+ - 560100 --> NUMBER(6)
+
+
+Arithmetic Operations ---> + - * / 
+Comparison Operations ---> = <> > >= < <=
+Assignment operator in python is '=' and in SQL '=' whereas Equality check in python is '==' and in SQL '='
+
+
+DDL Statements - 
+CREATE and DROP table syntax - 
+CREATE TABLE Student(
+	StudentId INTEGER, 
+	FName	  VARCHAR2(10)
+	DOJ	  DATE
+)
+DROP TABLE Student
+
+How to DROP a table?
+The steps are followed 
+1. Execute the CREATE Statement for Student(parent table)
+2. Insert the following records into the table Student
+3. Execute the CREATE Statement for Marks(Child table)
+4. Insert the following records into the table Marks
+5. Execute the DROP statement for Student(parent table) // It gives an error
+Reason for the error. The values of the primary/unique key column(s) from the parent table are referred to in the foreign key column of the child table(referential integrity). This reference will not allow the master table to be dropped prior to the child table.
+
+The primary key (Studentid) values of the parent table (Student) 1001 and 1002 are referred to in the foreign key (Studentid) of the child table (Marks). This is referential integrity. Hence table Student cannot be dropped prior to table Marks.
+
+6. Execute the DROP statement for Marks(child table)
+7. Execute the DROP statement for Student(parent table)
+
+Reason: When the child table is dropped first, the values that are referred to are removed. So, now the parent table can be dropped from the database without any error.
+
+Conclusion: Drop all the child tables first, then drop all the parent tables.
+
+
+Alternate Methods to DROP TABLE 
+--> DROP TABLE <Table name> CASCADE CONSTRAINTS;
+
+Steps to be followed - 
+1. Execute the CREATE statement for Student(parent table)
+2. Insert the following records into the table Student
+3. Execute the CREATE Statement for Marks(Child table)
+4. Insert the following records into the table Marks
+5. Execute the DROP statement for Student(parent table) 
+DROP TABLE Student CASCADE CONSTRAINTS
+6. Similarly drop the marks table
+
+Both the tables will be dropped successfully from the database.
+
+Reason: Since the referential integrity constraint is dropped from the parent table, the parent table can be dropped first, followed by the child table.
+
+The primary key (Studentid) values of the parent table (Student) 1001 and 1002 are referred to in the foreign key (Studentid) of the child table (Marks). The clause CASCADE CONSTRAINTS will remove all referential integrity constraints that refer to the primary or unique keys in the table.
+
+The referential integrity constraints that refer to the primary key (Studentid) values of the parent table (Student) 1001 and 1002 are removed. So, now the parent table (Student) can be dropped before the child table (Marks).
+
+Conclusion: CASCADE CONSTRAINTS clause will drop all the referential integrity constraints that refer to the primary or unique keys in the table. Hence all the parent tables can be dropped before the child tables.
+
+
+NOT NULL Constraint - 
+CREATE TABLE Student (
+    StudentId INTEGER CONSTRAINT Stud_SId_nn NOT NULL,
+    FName VARCHAR2(10) NOT NULL,
+    LName VARCHAR2(10));
+
+Constraints are classified into multiple types based on the number of columns they act upon as well as on the way they are specified.
+Constraint type 		Applies on 		Constraint Type 		Specified
+Single column Constraint	Single Column		Columnlevel Constraint 		With  column defintion	
+Composite Constraint		Multiple Columns	Table level Constraint 		After column definition
+
+Various constraints that can be created on database tables are : 
+1. NOT NULL
+2. PRIMARY KEY
+3. CHECK
+4. UNIQUE
+5. FOREIGN KEY
+We can also specify DEFAULT value for a column.
+
+DEFAULT - 
+
+CREATE TABLE Student (
+    StudentId INTEGER, 
+    FName VARCHAR2(10), 
+    DOJ DATE DEFAULT SYSDATE);
+
+A column can be given the default value by using DEFAULT option. The datatype of column and default expression must be same. DEFAULT option can be provided for nullable as well as NOT NULL attributes. Oracle does not consider DEFAULT as a constraint.
+
+PRIMARY KEY - 
+
+CREATE TABLE Student ( 
+    StudentId INTEGER CONSTRAINT stud_sid_pk PRIMARY KEY,
+    FName VARCHAR2(10), 
+    ContactNo NUMBER(10));
+
+PRIMARY KEY Constraint on a column ensures that the column cannot contain NULL and duplicate values. We can have only one PRIMARY KEY in a table.
+
+CHECK - 
+
+CREATE TABLE Student ( 
+    StudentId INTEGER, 
+    FName VARCHAR2(10), 
+    Gender CHAR(1) CONSTRAINT Stud_gender_ck1 CHECK(Gender IN('M', 'F'))); 
+
+CHECK constraint is used to limit the values that can be specified for a column.
+
+NOTE ::> Attributes allow NULL values unless NOT NULL clause is provided
+
+UNIQUE - 
+
+CREATE TABLE Student ( 
+    StudentId INTEGER, 
+    FName VARCHAR2(10), 
+    ContactNo NUMBER(10) CONSTRAINT Stud_cno_uk UNIQUE);
+
+UNIQUE constraint on a column ensures that two rows in a table cannot have same value in that column. Unlike PRIMARY KEY, UNIQUE constraint allows NULL values. A table can have many UNIQUE constraints.
+
+Need for FOREIGN KEY - 
+Student Table has already been created and inserted with few records in the database.
+To avoid the duplicate values, the relationship has to be built between the Student and Marks table. This can be achieved by using FOREIGN KEY.
+
+CREATE TABLE Marks(
+	CourseId INTEGER, 
+	StudentId INTEGER CONSTRAINT marks_sid_fk REFERENCES Student(StudentId),
+	MarksScored DECIMAL(5,2)
+);
+
+Need for COMPOSITE PRIMARY KEY - 
+
+CREATE TABLE Marks(
+	CourseId INTEGER CONSTRAINT marks_cid_pk PRIMARY KEY,
+	StudentId INTEGER CONSTRAINT marks_sid_fk REFERENCES Student(StudentId),
+	MarksScored DECIMAL(5,2)
+);
+
+
+Questions - 
+1. Requirements can be implemented using a referential integrity constraint? - Customer information must be known before anything is sold to him/her
+2. True statements - A UNIQUE constraint allows multiple rows to have NULL value, Referential integrity allows NULL vlaue
+3. Requirements can be implemented using a CHECK constraint - Customer must be greater than 21 yrs old, Customer must have residence in an Asian Country
+4. Which constraint can be defined only at the column level? NOT NULL
+
+
+
+
+
+
+Videos on SQL and DDL Statements - 
+
+Syntaxes - SQL 
+
+CREATE TABLE Friend (
+	Name VARCHAR2(20),
+	MobileNo NUMBER);
+SELECT * FROM Friend;
+INSERT INTO Friend VALUES ("James",1234567890);
+INSERT INTO Friend VALUES ("John", 0987654321);
+ALTER TABLE Friend ADD Age NUMBER;
+UPDATE Friend SET Age=25 WHERE Name="James";
+UPDATE Friend SET Age=30 WHERE Name="John";
+DELETE Friend WHERE Name="John";
+DROP TABLE Friend;
+
+
+DDL Commands - 
+
+CREATE TABLE Friend (
+	Name VARCHAR2(20),
+	MobileNo NUMBER);
+ALTER TABLE Friend ADD Age NUMBER;
+DROP TABLE Friend;
+
+DML Commands - 
+
+SELECT * FROM Friend;
+INSERT INTO Friend VALUES ("James",1234567890);
+UPDATE Friend SET Age=25 WHERE Name="James";
+DELETE Friend WHERE Name="John";
+
+DCL Commands - 
+
+GRANT SELECT ON Friend TO PUBLIC;
+GRANT SELECT ON Friend TO E1001;
+REVOKE SELECT ON Friend FROM E1001;
+
+TCL Commands -
+COMMIT;
+ROLLBACK;
+
+
+Storing Char and Varchar2 - 
+
+CREATE TABLE Manager(	
+	Name CHAR(25),
+	Gender CHAR(1),
+	Introduction VARCHAR2(500));
+SELECT * FROM Manager;
+LENGTH function - 
+SELECT LENGTH(Name), LENGTH(Introduction) FROM Manager; // Output of Name of datatype char results 25 and whereas the output of Introduction of datatype varchar2 results 80 but not 500. This is the difference between them
+VARCHAR2 is more efficient in memory usage. We use CHAR where we can have fixed data size.
+
+
+Storing Integer - 
+CREATE TABLE EmpId(Id INTEGER);
+DESC EmpId; // Describe function defines the structure of the table OP::> ID 	--> NUMBER(38) 38 represents the max digts allowed.
+INSERT INTO Empid VALUES(100);
+SELECT * FROM Empid;		// It results 100
+INSERT INTO Empid VALUES(100.5);
+SELECT * FROM Empid;		// It results 101 even if we have 100.5 and it gets rounded
+
+CREATE TABLE EmpId2(Id NUMBER(3));
+DESC EmpId2; 			 // Id NUMBER(3)
+INSERT INTO EmpIde2 VALUES(999); // It gets executed and where as if we give 1000 it shows an error.
+SELECT * FROM EmpId;
+
+Storing Decimals - 
+CREATE TABLE Expense( 
+	Amount NUMBER(5,2)); // NUMBER(5,2) --> (Precision,Scale)
+INSERT INTO Expense VALUES(121.79); // It executes successfully because 5,2 --> 5 = total digits(Precision) and 2 = decimal digits(Scale)
+INSERT INTO Expense VALUES(101.7);
+SELCET * FROM Expense;
+
+CREATE TABLE Expense1( 
+	Amount NUMBER(6,1)); 
+INSERT INTO Expense1 VALUES(121.79); 
+SELCET * FROM Expense1; // Results 121.8 rounded value
+
+CREATE TABLE Expense2( 
+	Amount NUMBER(3)); 
+INSERT INTO Expense2 VALUES(121.79); 
+SELCET * FROM Expense2; // Results 122 as an integer and the scale is taken as 0 digits
+
+CREATE TABLE Expense3( 
+	Amount NUMBER); 
+INSERT INTO Expense3 VALUES(121.79); 
+SELCET * FROM Expense3; // Results 121.79 is stored as it is. This happens when we dont specify any precision and scale
+
+CREATE TABLE Expense1( 
+	Amount NUMBER(4,2)); 
+INSERT INTO Expense1 VALUES(121.79); 
+SELCET * FROM Expense1; // It shows an error. Because the datatype allows only 4 digits but there are 5 digits in the data. To store 121.79 we require Precision-scale>=3 and Scale>=2
+
+Miscellaneous Datatypes - 
+DATE
+TIMESTAMP 
+
+CREATE TABLE Log(
+	LogDate DATE,
+	Event VARCHAR2(100));
+INSERT INTO Log VALUES('02-Jul-1981', 'Infosys Founded');
+SELECT * FROM Log; // DATE stored as 02-JUL-81 // DD-MM-YY
+Benifits of DATE Datatype - 
+--> Check Validity of date
+--> Supports operations on date
+
+CREATE TABLE Activity(
+	LogTime TIMESTAMP,
+	Activity_Name VARCHAR2(100));
+INSERT INTO Activity VALUES(SYSTIMESTAMP, "Printing");
+SELECT * FROM Activity; // Exact time of today
+
+CLOB - Character Large Objects. It can store upto 128TB of data if character data > 4000 bytes
+BLOB - Binary Large Objects . it can store upto 128TB of data, Binary data like Images, Videos, etc.,
+
+Choosing the Right Data Type - 
+Benifits - 
+1. uses Computer memory efficienty
+2. Allows only valid values for data.
+3. Allows only valid operations on data.
+
+DEFAULT -
+CREATE TABLE Std(
+	StdId INTEGER,
+	FName VARCHAR2(10),
+	Gender CHAR,
+	DOJ DATE DEFAULT SYSDATE);
+INSERT INTO Std(Stdid,FName,Gender) VALUES (1001, 'Alex','M');
+SELECT * FROM Std;
+INSERT INTO Std(Stdid,FName,Gender) VALUES (1002, 'Alexe',NULL);
+INSERT INTO Std(Stdid,FName,Gender) VALUES (1003, 'Alexee','05-JAN-2015');
+
+Not NULL Constraint - 
+CREATE TABLE STD(
+	STDID INTEGER,
+	FNAME VARCHAR2(10) CONSTRAINT stud_fname_nn NOT NULL, // stud_fname_nn can be taken anything its just a convention
+	LNAME VARCHAR2(10));
+INSERT INTO STD(STDID,LNAME) VALUES (1001,'FERGUSON'); // It shows an error
+INSERT INTO STD(STDID,LNAME) VALUES (1001,'ALEX','FERGUSON');
+INSERT INTO STD(STDID,LNAME) VALUES (1001,'    ','FERGUSON');
+INSERT INTO STD(STDID,LNAME) VALUES (1001,'','FERGUSON'); // It shows an error
+
+PRIMARY KEY - 
+CREATE TABLE STD(
+	STDID INTEGER CONSTRAINT stud_stdid_pk PRIMARY KEY,
+	FNAME VARCHAR2(10),
+	LNAME VARCHAR2(10));
+
+UNIQUE KEY - 
+CREATE TABLE STD(
+	STDID INTEGER CONSTRAINT stud_stdid_uk UNIQUE,
+	FNAME VARCHAR2(10),
+	LNAME VARCHAR2(10));
+
+CHECK Constraint - 
+CREATE TABLE STD(
+	STDID INTEGER,
+	FNAME VARCHAR2(10),
+	GENDER CHAR(1) CONSTRAINT std_gender_ck1 CHECK(GENDER IN('M','F')),
+	LNAME VARCHAR2(10));
+commonly used operators with CHECK Constraint are - IN, LIKE, BETWEEN, AND, OR, NOT, >, <, etc.,
+
+FOREIGN KEY - 
+SELF REFERENTIAL FOREIGN KEY - 
+
+COLUMN LEVEL AND TABLE LEVEL CONSTRAINTS - 
+
+COLUMN LEVEL - 
+CREATE TABLE STD(
+	STDID INTEGER CONSTRAINT stud_stdid_pk PRIMARY KEY,
+	FNAME VARCHAR2(10),
+	LNAME VARCHAR2(10));
+
+TABLE LEVEL - 
+CREATE TABLE STD(
+	CONSTRAINT stud_stdid_pk PRIMARY KEY(STDID),
+	STDID INTEGER,
+	FNAME VARCHAR2(10),
+	LNAME VARCHAR2(10));
+
+Normalization is the process of minimizing redundancy from a relation or set of relations. Redundancy in relation may cause insertion, deletion and updation anomalies. Normal forms are used to eliminate or reduce redundancy in database tables.
+
+1NF - A relation is in first normal form if every attribute in that relation is single valued attribute.
+2NF - A relation must be in first normal form and relation must not contain any partial dependency. A relation is in 2NF if it has NO PARTIAL DEPENDENCY ie., no non-prime attribute(attributes which are not part of any candidate key)
+NOTE - 
+2NF tries to reduce the redundant data getting stored in memory. For instance, if there are 100 students taking C1 course, we dont need to store its Fee as 1000 for all the 100 records, instead once we can store it in the second table as the course fee for C1 is 1000.
+R(A,B,C,D)---> 
+AB -> C  [A and B together determine C]
+BC -> D  [B and C together determine D]
+3NF - A relation is in 3NF, if there is no transitive dependency for non-prime attributes as well as it is in 2NF.
+A relation is in 3NF if atleast one of the following condition holds in every non-trivial function dependency X->Y
+1. X is a super key
+2. Y is a prime attribute(each element of Y is part of some candidate key).
+Transitive dependency – If A->B and B->C are two FDs then A->C is called transitive dependency.
+
+Summary - 
+1NF
+---------------
+A relation is in first normal form only if the relational table doesn’t contain any multivalued attribute but contains only single-valued attributes.
+
+Example: Student Table:
+StudentId      Name       Course1        course2 
+ 
+  101          Raj         Mathematics    Chemistry
+  102          Nilesh      Chemistry
+  103          Sanu        Physics        Chemistry
+To ensure this model is in first normal form, we split the course tuple (previous example) into course1 and course2 to hold our course information as atomic entities so that no row contains more than one courses.no duplicate rows.
+
+2NF
+---------------------
+A relation is in second normal form if:
+ - It is in first normal form or 1NF
+ - It doesn’t contain any partial dependencies. (It shouldn’t have any non-prime attribute which is functionally dependent on any proper subset of the candidate key of the relation.).
+
+3NF 
+--------------------
+Let R be the relational schema, X->Y any non-trivial functional dependency over R is in 3NF if:
+R should be in 2NF
+X should be candidate key or superkey, or
+Y should be prime attribute(attributes which are the part of candidate key)
+(So basically the relation which is in 2NF already if it doesn’t contain any transitive dependencies then it will be in 3NF.).

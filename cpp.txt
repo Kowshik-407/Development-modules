@@ -1,0 +1,609 @@
+C++ Course -
+
+C++ is a popular cross-platform language that can be used to create high performance applications - OS, browsers, Video-games, art applications and so on.
+C++ is a General Purpose Programming Language
+C++ is a case-sensitive.
+
+C++ program is a collection of commands or statements. 
+Curly brackets {} indicate the beginning and end of a function. 
+
+#include<iostream>
+using namespace std;
+int main()
+{
+	cout<< "Hello World";
+	return 0;
+}
+
+int main() is the entry point of every C++ program
+cout is the stream object used to perform output on the standard output device.Which is usually to display screen.
+<< -- insertion operator
+<iostream> --> streams are used to perform input and output operations. 
+
+Using multiple insertion operators - 
+cout << "This" << "is" << "awesome!";
+; - semicolon is used to terminate the statement.
+
+Headers - 
+C++ offers various headers, each of which contains information needed for programs to work properly. 
+Header - <iostream>
+#include is used for adding a standard or user-defined header files to the program
+
+<iostream> header defines the standard stream objects that input and output data. 
+
+Namespaces - 
+A namespace is a declarative region that provides a scope to the identifiers(names of elements) inside it.
+using namespace std --> Tells the compiler to use the std(standard) namespace
+std namespace includes features of the C++ Standard Library
+
+New Line - 
+The cout object does not insert a line break at the end of the output. 
+To print two lines is to use the endl --> End line(Line Break)
+cout<< "Hello World!" << endl;
+
+The new line character \n can be used as an alternative to endl.
+cout<< "Hello World! \n"
+
+Comments - 
+These are explanatory statements that you can include in the C++ code to explain what the code is doing. 
+Single - line Comments - //
+Multi  - line Comments - /* --------- */
+// Prints "Hello world"
+/* dsfjk 
+   dsjkfhdsfljk
+   sdkjflhn;laskd */
+
+
+Variables - 
+Creating a variable reserves a memory location, or a space in memory for storing values. 
+Indentifier - 
+An identifier is an name for a variable, function, class, module, or any other user-defined item. An identifier starts with a letter (A-Z or a-z) or an Underscore(_)
+int myVariable = 10;
+
+Variable Declaration - int a,b;
+Variable Initialization - int a=30;
+
+Variables must be declared before their use
+Variables must have a data type
+Datatype can be mentioned only once when declaring the variable.
+
+User input - 
+To enable the user to input a value, use cin in combination with the extraction operator(>>)
+cin >> num;
+Multiple Extractions --> cin >> a >> b;
+
+Arithmetic Operators --> +, -, *, /, %
+Operator precedence ---> (, ), *, /, %, +, -
+Assignment Operators --> +=, -=, *=, /=, %=
+Increment Operator ----> x++; -- Postfix and ++x; -- Prefix
+++x increments x's value before using it. 
+x++ uses x's value then increments it. 
+Decrement Operator ----> x--; --x;
+
+
+Decision Making - 
+if statement - 
+if(condition){
+	statements
+}
+Condition can be done using relational operators
+Relational Operators - >, >=, <, <=, ==, !=
+
+else statement - 
+else{
+	statements 
+}
+
+
+Loops - A loop repeatedly executes a set of statements until a particular condition is satisfied.
+while loop - 
+while(condition){
+	statements;
+}
+
+for loop - 
+for(init;condition;increment){
+	statements;
+}
+
+do..while loop - 
+do{
+	statements;
+}while(condition);
+
+do..while loop executes the statements at least once, and then tests the condition. 
+while loop executes the statement after testing condition.
+
+Switch Statement - 
+It tests a variable against a list of values, which are called cases, to determine whether it is equal to any of them.
+Default - default case can be used to perform a task when none of the cases is determined to be true.
+switch(expression){
+case value1:
+	statements;
+	break;
+case value2:
+	statements;
+	break;
+default:
+	statements;
+}
+
+break statement - It's role is to terminate the switch statement. 
+default case doesn't requires break statement. break statement can also be used to break out of a loop.
+
+Logical Operators - &&, ||, !
+
+
+Introduction to Datatypes - 
+The operating system allocates memory and selects what will be stored in the reserved memory based on the variable's data type.
+Datatypes are intended to define the proper use of an identifier. 
+legal C++ Expression - 55 + 15
+illegal c++ expressi - 55 + "John"
+
+Numeric data types include - 
+integers ---> -7, 42
+floating point ---> 3.14, -42.67
+
+Strings and Characters - 
+A string is composed of numbers, characters, or symbols. String literals are placed in double quotes ---> " "
+Characters are single letters or symbols, and must be enclosed between single quotes ---> ' '
+
+Boolean data type returns just two possible values: true(1) and false(0)
+
+Integer type holds non-fractional numbers which can be positive or negative. 
+int a = 42;
+Several modifiers : 
+signed:		A signed integer can hold both negative and positive integers. 
+unsigned: 	An unsigned integer can hold only positive values. 
+short: 		Half of the default size. 
+long: 		Twice the default size. 
+ex: unsigned long int a;
+
+Floating point numbers - This type variable can hold a real number 
+Several Modifiers - 
+float: 		It is 4 bytes 
+double: 	It is 8 bytes 
+long double:	It is 16 bytes
+ex: double temp=4.21;
+
+String is an ordered sequence of characters, enclosed in " "
+We need to include the <string> library to use the string data type.
+string a="I am learing C++";
+
+Char variable holds ' '
+char test='S';
+
+Boolean variables --> bool online=false;
+
+
+Variable Naming Rules - 
+Following rules - 
+1. All variable names must begin with a letter of the alphabet or an underscore(_)
+2. After the initial letter, variable names can contain additional letters, as well as numbers. Blankspaces or special char's are not allowed in variable names. 
+Two naming Conventions - 
+1. Pascal Case - BackColor --> First letter is capitalized
+2. Camel  Case - backColor --> First letter is in lowercase
+
+C++ is case-sensitive 
+Variable Naming Rules - C++ keyword (reserved word) cannot be used as variable names. 
+ex: int, float, double, cout cannot be used as a variable name. 
+
+
+Arrays - 
+An array is used to store a collection of data of same datatype. 
+int a[5]; --> Declaration 
+int b[5]={11,12,13,14,15}; --> Initialization 
+The number of values between braces {} must not exceed the number of the elements declared within the square brackets[]
+
+Accessing and replacing the elements in the array -
+int b[]={11,22,33,44,55};
+cout<<b[2]; --> Accessing and prints the value
+b[2]=42; --> Replacing the value
+
+
+Arrays in loops - 
+int myArr[5];
+for(int x=0;x<5;x++)
+	myArr[x]=42;
+Each element in the array is assigned the value of 42. 
+The x variable in the for loop is used as the index for the array. 
+
+
+Multi-dimensional arrays - 
+A multi-dimensional array holds one or more arrays. Declare a multidimensional array 
+type name[size1][size2]....[sizeN];
+2-dimensional array --> int x[3][4] = It is a 3 X 4 integer array
+Declaration - int x[3][4]
+Initialization - int x[2][3] = {
+				{2,3,4},
+				{5,6,7}
+				};
+int x[2][3] = {{2,3,4},{5,6,7}};
+
+3-dimensional array --> string ThreeD[42][8][3];
+Arrays more than 3D are harder to manage. 
+
+
+Pointers - It is a data type that contains an address.
+Every variable is a memory location, which has its address defined. 
+That address can be accessed during the ampersand(&) operator (also called the address-of operator), which denotes an address in memory. 
+int score = 5;
+cout << &score << endl; --> It outputs the memory address, which stores the variable score. 
+
+A pointer is a variable, with the address of another variable as its value. In c++, pointers help make certain tasks easier to perform. All pointers share the same data type - a long hexadecimal number represents a memory address. 
+
+
+* sign is used to declare a pointer. 
+int *ip; 		// pointer to an integer
+double *dp;		// pointer to a  double 
+float *fp;		// pointer to a  float
+char *ch; 		// pointer to a  character
+
+---> The * sign can be placed next to the data type, or the variable name, or in the middle. 
+
+Assigning the address of a variable to the pointer : 
+int score = 5;
+int *scorePtr;
+scorePtr = &score;
+cout << scorePtr << endl;
+It declares a pointer to an integer called scorePtr, and assigns to it the memory location of the score variable using the &(address-of) operator. 
+scorePtr's value is the memory location of score. 
+
+int var = 5;
+int* ptr = &var; ---> int * ptr is same as int* ptr is same as int *ptr
+
+Pointer Operations - 
+There are two operations for pointers: 
+1. Address-of operator (&): returns the memory address of its operand. 
+2. Contents-of (or dereference) operator (*): returns the value of the variable located at the address specified by its operand. 
+
+int var=50;
+int *p;
+p=&var;
+cout<<var<<endl; // output - 50
+cout<< p <<endl; // output - 0x29fee8
+cout<< *p<<endl; // output - 50 
+
+Dereferencing - The dereference operator(*) is basically an alias for the variable the pointer points to 
+int x = 5;
+int *p = &x;
+
+x = x + 4;
+x = *p + 4;
+*p = *p + 4;
+All the three statements are equivalent. 
+p is pointing to the variable x, dereferencing the pointer (*p) is representing exactly the same as the variable x.
+
+
+Static and Dynamic Memory - 
+To be successful as a C++ programmer, it's essential to have a good understanding of how dynamic memory works.
+Memory is divided into two parts: 
+The stack: All of your local variables take up memory from the stack.
+The heap:  Unused program memory that can be used when the program runs to dynamically allocate the memory. 
+new int; --> It allocates the memory size necessary for storing an integer on the heap, and returns that address.
+You can allocate memory at run time within the heap for the variable of a given type using the new operator.
+
+Dynamic Memory - The allocated address can be stored in a pointer, which can then be dereferenced to access the variable.
+int *p = new int;
+*p = 5;
+The pointer p is stored in the stack as a local variable, and holds the heap's allocated address as its value. The value of 5 is stored at that address in the heap. 
+
+Dynamic Memory - 
+For local variables on the stack, managing memory is carried out automatically. 
+delete pointer;
+On the heap, it's necessary to manually handle the dynamically allocated memory, and use the delete operator to free up the memory when it's no longer needed.
+
+int *p = new int; // Request memory
+*p = 5; // Store value
+cout << *p << endl; // use value
+delete p; // free up the memory
+
+Note: Forgetting to free up memory that has been allocated with the new keyword will result in memory leaks, because that memory will stay allocated until the program shuts down.
+
+Dangling Pointers - The delete operator frees up the memory allocated for the variable, but does not delete the pointer  itself, as the pointer is stored on the stack.
+Pointers that are left pointing to non-existent memory locations are called dangling pointers.
+
+int *p = new int;
+*p = 5;
+delete p;
+//now p is a dangling pointer
+p = new int; // reuse for a new address
+
+The NULL pointer is a constant with a value of zero that is defined in several of the standard libraries, including iostream
+int *ptr = NULL;
+
+Dynamic Memory - It can also be allocated for arrays. 
+int *p = NULL; // Pointer initialized with null
+p = new int[20]; // Request memory
+delete [] p; // Delete array pointed to by p
+
+
+sizeof() operator - 
+bool 		--> 1 byte
+char 		--> 1 byte
+short		--> 2 bytes
+int 		--> 2 bytes
+long 		--> 4 bytes 
+long long 	--> 8 bytes
+float		--> 4 bytes
+double		--> 8 bytes
+long double	--> 8 bytes
+
+Syntax - sizeof(data_type)
+cout << sizeof(char) << endl; --> sizeof() operator may varies according to the computer and compiler used.
+
+Size of an array
+int myArr[10];
+cout << sizeof(myArr) << endl; // output: 2*10
+
+To find the array size = 10 using sizeof() Operator --> cout << sizeof(numbers) / sizeof(numbers[0]);
+
+
+Functions - A function is a group of statements that perform a particular task. 
+Advantages of using functions - 
+- You can reuse the code within a function. 
+- You can easily test individual functions. 
+- If it's necessary to make any code modifications, you can make modifications within a single function, without altering the program structure.
+- You can use the same function for different inputs.
+
+The Return Type - A function's return type is declared before its name. 
+int main() --> It returns int 
+
+Defining a function - 
+return_type function_name(parameter list)
+{
+	body of the function
+}
+return_type - Data type of the value returned by the function. 
+function name - Name of the function
+parameters - The value of the parameter is referred to as actual parameter or argument.
+Body of the function - A collection of statements defining what the function does.
+
+To call the function - function_name();
+
+Function definition after the main function() results an error
+A function must be declared before its call
+
+Function parameters - For a function to use arguments, it must declare formal parameters, which are variables that accept the argument's values.
+void printSomething(int x)--> integer parameter
+printSomething(42)--> argument is passed.
+
+Multiple Parameters - int addNumbers(int x, int y) --> addNumbers function takes two parameters of type int, and returns int. Datatype and name should be defined for each parameter.
+
+Random Numbers - In the C++ standard library, you can access a pseudo random number generator function that's called rand(). When used, we are required to include the header <cstdlib>
+#include<cstdlib>
+cout<<rand(); // Outputs a random number.
+
+A for loop can be used to generate multiple random numbers. 
+for(int x=1;x<=10;x+=)
+	cout << rand() << endl;
+Use the modulo(%) operator to generate random numbers within a specific range. 
+for(int x=1;x<=10;x++)
+	cout << 1+(rand()%6)<<endl; // It generates wholw numbers within a range of 1 to 6
+
+srand() function - It is used to generate truly random numbers. 
+It allows to specify a seed value as its parameter, which is used for the rand() function's algorithm.
+
+int main(){
+	srand(98);
+	for(int x=1;x<=10;x++)
+		cout<<1+(rand()%6)<<endl;
+When you change the seed value and automatically changes the return of rand();
+
+Truly Random Numbers - A solution to generate truly random numbers, is to use the current time as a seed value for the srand() function.
+It makes use of the time() function to get the number of seconds on your system time, and randomly seed the rand() function
+#include<iostream>
+#include<cstdlib>
+#include<ctime>
+using namespace std;
+
+int main(){
+srand(time(0)); // time(0) will return the current second count, prompting the srand() function to set a different seed for the rand() function each time the program runs.
+for(int x=1;x<=10;x++) cout<<1+(rand()%6)<<endl;
+
+Default Values for Parameters - 
+When defining a function, you can specify a default value for each of the last parameters. If the corresponding argument is missing when you call a function, it uses the default value. 
+
+int sum(int a,int b=42){
+	int result = a+b;
+	return(result);
+}
+sum(24); // 66
+sum(24,46); // 70
+
+
+Function Overloading - It allows to create multiple functions with the same name, so long as they have different parameters.
+Ex:
+void printNumber(int a){
+	cout<<a;
+}
+
+
+void printNumber(float a){
+	cout<<a;
+}
+
+Here, Function 1 is effective with integer arguments only. Overloading it will make it available for other types, such as floats
+Now, the same printNumber() function name will work for both integers and floats.
+
+int main(){
+int a=16;
+float b=54.541;
+printNumber(a); // 16
+printNumber(b); // 54.541
+
+You can not overload function declarations that differ only by return type.
+int printName(int a){ }
+float printName(int b){ }
+double printName(int c){ }
+Above declaration results in an error.
+Although each function uses the same name, the only difference from one to the other is the return type, which is not allowed.
+
+Recursion - A recursive function in C++ is a function that calls itself. 
+To avoid having the recursion run indefinitely, you must include a terminate condition.
+Ex: To find the factorial of a given number.
+int factorial(int n){
+	if(n==1) return 1;
+	else return n*factorial(n-1);
+}
+
+Another name for the exit condition is the base case. --> Above function has the base case as n==1
+Keep in mind that a base case is necessary for real recursion. Without it, the recursion will keep running forever.
+
+Arrays and functions - 
+An array can also be passed to a function as an argument. 
+The parameter should be defined as an array using square brackets, when declaring the function.
+void printArray(int arr[], int size){
+for(int x=0;x<size;x++)
+	cout<<arr[x]
+}
+int main(){
+int myArr[3]={42,22,33};
+printArray(myArr,3);
+}
+
+--> Remember to specify the array's name without square brackets when passing it as an argument to a function.
+
+
+Function Arguments - There are two ways to pass arguments to a function as the function is being called.
+ 
+1. By Value - This method copies the argument's actual value into the function's formal parameter. Here, we can make changes to the parameter within the function without having any effect on the argument. 
+2. By reference - This method copies the argument's reference into the formal parameter. Within the function, the reference is used to access the actual argument used in the call. This means that any change made to the parameter affects the parameter.
+By default, C++ uses call by value to pass arguments. 
+
+
+Passing by value - 
+void myFunc(int x)
+	x=100;
+int main(){
+int var=20;
+myFunc(var);
+cout<<var; // Returns 20
+}
+--> Because a copy of the argument is passed to the function, the original argument is not modified by the function.
+
+Pass By Value means to pass the copy of the variable as the argument. 
+
+Pass By Reference - It copies an argument's address into the formal parameter.
+To pass the value by reference, argument pointers are passed to the functions just like any other value.
+void myFunc(int *x)
+	*x = 100;
+int main(){
+	int var = 20;
+	myFunc(&var);
+	cout << var; // 20
+}
+As we passed the variable directly to the function using the address-of operator(&)
+The function declaration says that the function takes a pointer as its parameter(defined using the * operator)
+--> As a result, the function has actually changed the argument's value, as accessed it via the pointer.
+
+
+Summary --> 
+Passing by value: This method copies the actual value of an argument into the formal parameter of the function. In this case, changes made to the parameter inside the function have no effect on the argument.
+
+Passing by reference: This method copies the reference of an argument into the formal parameter. Inside the function, the reference is used to access the actual argument used in the call. So, changes made to the parameter also affect the argument.
+
+--> In general, passing by value is faster and more effective. Pass by reference when your function needs to modify the argument, or when you need to pass a data type, that uses a lot of memory and is expensive to copy.
+
+
+OOPS - 
+Object 
+-------------
+What is an Object - Object Oriented Programming is a programming style that is intended to make things about programming closer to thinking about the real world.
+Objects - These are independent units, and each has its own identity, ex::> An apple is an object
+Objects also have characteristics that are used to describe them. Ex::> A car can be red or blue, a mug can be full or empty. These characteristics are also attributes. An attribute describes the current state of an object. 
+Objects can have multiple attributes - The mug can be empty, red and large.
+Object behaves in its own way. The car moves, the phone rings, and so on.
+
+So, there are three dimensions to describe any object in OOPS --> Identity, Attributes, Behavior.
+
+Car Object  ---> Objects are not always visible items and not always physical items.
+Color : "red"
+Year  : 2015
+start()
+stop()
+horn()
+
+Class 
+------------------
+Objects are created using classes, the class describes what the object will be, but is seperate from the object itself
+A class can be described as an object's blueprint, description, or definition
+Each class has a name, and describes attributes and behavior.
+Method is an another term for a class behavior. A method is a function declared in a class.
+BankAccount Class - 
+name : BankAccount
+attributes : accountNumber, balance, dateOpened
+behavior : open(), close(), deposit()
+Each object is called an instance of a class. The process of creating objects is called instantiation.
+
+Class Declaration - 
+class BankAccount {
+
+}; // A class definiton must be followed by a semicolon.
+Inside the class define all atrributes and using curly braces we can define behavior. We can also define access specifier.
+
+class BankAccount {
+	public:
+		void sayHi(){
+			cout<<"Hi"<<endl;
+		}
+};
+// We must declare a class before using it
+int main(){
+BankAccount test; // object named test has all the members of the class defined.
+test.sayHi(); // Use dot operator (.) that is used to access and call the method of the object.
+}
+
+Abstraction -
+Data abstraction is the concept of providing only essential information to the outside world. It's the process of representing essential features without including implementation details.
+EX::> real-world example is a book; When you hear the term book, you dont know the exact specifics, ie., the page count, the color, the size, but you understand the idea of a book - the abstraction of the book.
+Abstraction --> It is to focus on the essential qualities of something.
+
+Abstraction allows us to write a single bank account class, and then create different objects based on the class
+
+					BankAccount	
+				accoutNumber 
+				balance
+				....
+
+  A6595				  A6596
+  $500				  $800
+  4/3/2016			  10/8/2015
+  Checking 			  Checking
+
+John's Account			David's Account
+
+Abstraction acts as a foundation for inheritance and polymorphism concepts.
+
+Encapsulation - It is called data hiding.
+For ex::> if we take our BankAccount class, we do not want some other part of our program to reach in and change the balance of any object, going through the deposit() or withdraw() behaviors.
+ - We should hide that attribute, control access to it, so it is accessible only by the object itself.
+ - This way, the balance cannot be directly changed from outside of the object and is accessible only using its methods
+ - This is also known as "black boxing", which refers to closing the inner working zones of the object, except of the pieces that we want to make public.
+Benifits of encapsulation are - 
+ - Control the way data is accessed or modified.
+ - Code is more flexible and easy to change with new requirements. 
+ - Change one part of code without affecting other part of code.
+
+Access Specifiers - These are used to set access levels to particular members of the class 
+Three levels fo access specifiers are public, protected, and private.
+public - It can be accessible from outside the class, and anywhere within the scope of the class object.
+private - It cannot be accessed, or even viewed, from outside the class; it can be accessed only from within the class.
+
+Constructors - Class constructors are special member functions of a class. They are executed whenever new objects are created within that class. Constructor has no return type, not even void.
+Constructors are called when a class object is created.
+
+class myClass {
+  public:
+    myClass(string nm) {
+      setName(nm);
+    }
+    void setName(string x) {
+      name = x;
+    }
+    string getName() {
+      return name;
+    }
+  private:
+    string name;
+};
